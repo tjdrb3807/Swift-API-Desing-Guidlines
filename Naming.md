@@ -125,9 +125,33 @@ func addObserver(_ observer: NSObject, forKeyPath path: String)
 
 grid.addObserver(self, forKeyPath: graphics) // clear
 ```
+<br>
+<br>
 
----
----
+# Strive for Fluent Usage(자연스러운 사용을 위해 노력하기)
+Prefer method and function names that make use sites form grammatical English phrases.
+>사용되는 곳의 메서드와 합수의 이름은 영어 문법에 맞는 구가 되도록 하는 것이 좋다.
+```Swift
+✅
+x.insert(y, at: z)          "x, insert y at x" "x의, z에 y를 삽입한다"
+x.subViews(havingColor: y)  "x's subviews having color y" "y 색상인, x의 하위 뷰"
+x.capitalizingNouns()       "x, capitalizing nouns" "x의 명사 대문자화"
+```
+```Swift
+❌
+x.insert(y, position: z)
+x.subViews(color: y)
+x.nounCapitalize()
+```
 
+<br>
+
+It is acceptable for fluency to degrade after the first argument or two when those arguments are not central to the call’s meaning:
+>첫 번째 또는 두 번째 전달이자 이후의 전달인자가 호출 의미의 핵심이 아닌 경우엔 자연스러움이 떨어져도 괜찮습니다.
+```Swift
+AudioUnit.instantiate(
+    with: description, 
+    options: [.inProcess], completionHandler: stopProgressBar)
+```
 
     
